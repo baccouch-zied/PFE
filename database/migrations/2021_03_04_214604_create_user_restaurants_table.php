@@ -17,10 +17,21 @@ class CreateUserRestaurantsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('telephone');
+
+            $table->longText('description')->nullable();
+            $table->date('horaire')->nullable();
+            $table->longText('jour')->nullable();
+            $table->string('image')->nullable();
+            $table->string('image2')->nullable();
+
+            $table->string('adresse')->nullable();
+            $table->boolean('etat')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            $table->string('type');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')
                 ->references('id')

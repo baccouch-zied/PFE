@@ -8,8 +8,24 @@ class Produit extends Model
 {
     
     protected $fillable = [
-        'nom', 'prix','image','deetails','id_categorie'
+        'name', 'price','image','details','categorie_id','quantity','user_id'
     ];
+
+	public function getDlivery()
+	{
+		$delivery=3;
+	}
+
+	public function getTotal()
+	{
+		$total= $delivery+$price;
+	}
+    
+    public function user()
+	{
+		return $this->belongsToMany('App\User');
+	}
+
 
     public function categorie()
 	{

@@ -65,6 +65,7 @@ class RegisterRestoController extends Controller
             'telephone' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+
         ]);
     }
 
@@ -79,7 +80,8 @@ class RegisterRestoController extends Controller
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password']),
+            'password' => Hash::make($request['password']),        
+            'type' => "restaurant",
 
         ]);
 
@@ -88,8 +90,10 @@ class RegisterRestoController extends Controller
             'telephone' => $request['telephone'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+    
+            'type' => "restaurant",
         ]);
-        return redirect ('/login')->with('success', 'Votre compte a bien été crée, vous devez le confirmez avec l email que vous allez recevoir');
+        return redirect ('/resto')->with('success', 'Votre compte a bien été crée, ');
 
     }
 }

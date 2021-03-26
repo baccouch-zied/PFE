@@ -38,7 +38,7 @@
 
                 <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Gestion des mon interface</span><i data-feather="more-horizontal"></i>
                 </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Mes Coordonées</span></a>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="/infosLivreur"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Mes Coordonées</span></a>
                 </li>
                 <li class=" nav-item"><a class="d-flex align-items-center" href="app-chat.html"><i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">Liste des Commandes</span></a>
                 </li>

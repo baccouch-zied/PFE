@@ -64,6 +64,8 @@ class RegisterLivreurController extends Controller
             'telephone' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'type' => ['required'],
+
         ]);
     }
 
@@ -79,6 +81,8 @@ class RegisterLivreurController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+            'type' => "livreur",
+
         ]);
 
         $userlivreur = UserLivreur::create([
@@ -87,6 +91,8 @@ class RegisterLivreurController extends Controller
             'telephone' => $request['telephone'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+            'type' => "livreur",
+
         ]);
         return redirect ('/login')->with('success', 'Votre compte a bien été crée, vous devez le confirmez avec l email que vous allez recevoir');
 

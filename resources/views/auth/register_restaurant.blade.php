@@ -76,6 +76,9 @@
                 <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
               </div>
             </div>
+            <div class="input-group input-group-merge form-password-toggle @error('password') is-invalid @enderror">
+            <input type="hidden" name="type" value="restaurant" />
+            </div>
             @error('password')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>

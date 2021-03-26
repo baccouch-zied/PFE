@@ -70,11 +70,14 @@
 
     <!-- BEGIN: Page JS-->
     <script src="{{asset('back/js/scripts/pages/dashboard-ecommerce.js')}}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- END: Page JS-->
     <script>
         //Warning Message
-    function supp(){
-        swal({
+        $(document).ready(function(){
+            $('.suppbtn').click(function (e)){
+                e.preventDefault();
+                swal({
             title: "Are you sure?",
             text: "You will not be able to recover this imaginary file!",
             type: "warning",
@@ -82,10 +85,12 @@
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, delete it!",
             closeOnConfirm: false
-        }, function(){
+                }, function(){
             swal("Deleted!", "Your imaginary file has been deleted.", "success");
+              });
+        }
         });
-    }
+
    </script>
 
     <script>

@@ -60,9 +60,4 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function filtrage($email)
-    {
-      $users = DB::table('users')->where('email' ,'=' ,$email)->get();
-      return view('auth.login',compact(['users']));
-    }
 }

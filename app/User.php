@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable,HasApiTokens ;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email','password','confirmation_token'
+        'name', 'email','password','type','confirmation_token'
     ];
 
     /**
@@ -40,6 +41,11 @@ class User extends Authenticatable
     public function user_restaurant() 
     { 
         return $this->hasMany('App\userRestaurant');
+    }
+
+    public function client() 
+    { 
+        return $this->hasMany('App\Client');
     }
 
     public function user_livreur() 

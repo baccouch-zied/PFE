@@ -56,6 +56,9 @@
               </span>
             @enderror
           </div>
+          <div class="input-group input-group-merge form-password-toggle @error('password') is-invalid @enderror">
+            <input type="hidden" name="type" value="admin" />
+            </div>
 
           <div class="form-group">
             <label for="register-password" class="form-label">Password</label>

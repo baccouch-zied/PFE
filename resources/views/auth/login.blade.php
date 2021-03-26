@@ -48,6 +48,15 @@
                                 <h2 class="card-title font-weight-bold mb-1">Zarzis Delivry! 👋</h2>
                                 <form class="auth-login-form mt-2" method="POST" action="{{ route('login') }}">
                                 @csrf
+                                @if(url()->previous() === route('cart.index'))
+     <div class="col s12">
+      <div class="card purple darken-3">
+        <div class="card-content white-text center-align">
+          Vous devez être connecté pour passer une commande, si vous n'avez pas encore de compte vous pouvez en créer un en utilisant le lien sous ce formulaire.
+        </div>
+      </div>
+    </div>
+  @endif
                                         <div class="form-group">
                                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                             @error('email')

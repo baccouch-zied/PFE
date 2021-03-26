@@ -33,6 +33,12 @@ class LivreurMiddleware
             return $next($request);
         }
         
+        if(Auth::user()->type =='client')
+        {
+            return redirect()->route('/');
+
+        }
+        
         else
         {
             return redirect('/');

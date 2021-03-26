@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 use App\categorie;
-
+use App\user;
+use App\UserRestaurant;
+use Auth;
 class CategorieController extends Controller
 {
     /**
@@ -15,8 +18,9 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        $categories= categorie::all();
-        return view('back.restaurant.categorie.ListeCategorie', compact('categories'));
+        $id=Auth::user()->id;
+        $categories= DB::table('categories')->where('user_id' ,'=' ,$id)->get();
+        return view('back.restaurant.categorie.index', compact('categories'));
     }
 
     /**
@@ -26,7 +30,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        return view('back.restaurant.categorie.addCategorie');
+        return view('back.restaurant.categorie.create');
 
     }
 
@@ -38,6 +42,7 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
+        $id=Auth::user()->id;
         $request->validate([
             'nom'    =>  'required',
             'image'         =>  'required',
@@ -52,12 +57,12 @@ class CategorieController extends Controller
         $form_data = array(
             'nom'       =>   $request->nom,
             'image'            =>   $new_name,
-
+            'user_id' =>$id
         );
 
         categorie::create($form_data);
 
-        return redirect('categorie')->with('success', 'Data Added successfully.');
+        return redirect('categorie')->with('success', 'Votre categorie est ajouté avec sucess');
     }
 
     /**
@@ -66,9 +71,10 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Categorie $categorie)
     {
-        //
+        return view('back.restaurant.categorie.show',compact('categorie'));
+
     }
 
     /**
@@ -79,8 +85,9 @@ class CategorieController extends Controller
      */
     public function edit(Categorie $categorie)
     {
-        $categories= categorie::all();
-        return view('back.restaurant.categorie.editCategorie', compact('categorie'));
+        $id=Auth::user()->id;
+        $categories= DB::table('categories')->where('user_id' ,'=' ,$id)->get();
+        return view('back.restaurant.categorie.edit', compact('categorie'));
     }
 
     /**
@@ -126,7 +133,7 @@ class CategorieController extends Controller
   
         categorie::whereId($id)->update($form_data);
 
-        return redirect('categorie')->with('success', 'Data is successfully updated');
+        return redirect('categorie')->with('success', 'Votre categorie est modifié avec sucess');
     }
 
     /**
@@ -135,7 +142,7 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categorie $categoriefor)
+    public function destroy(Categorie $categorie)
     {
         $categorie->delete();
         return redirect('/categorie');

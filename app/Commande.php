@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Commande extends Model
 {
     protected $fillable = [
-        'lieu', 'date','etat','total','modePayement','id_client','id_restaurant','id_livreur'
+        'name', 'prenom', 'telephone','heure','produits','email','adresse','commentaire','user_id','userrestaurant_id','userlivreur_id'
     ];
 
     public function client()
@@ -15,15 +15,13 @@ class Commande extends Model
 		return $this->belongsToMany('App\client');
 	}
 
-    public function restaurant()
+    public function userrestaurant()
 	{
-		return $this->belongsToMany('App\client');
+		return $this->belongsToMany('App\UserRestaurant');
 	}
 
-    public function livreur()
+    public function userlivreur()
 	{
-		return $this->belongsToMany('App\client');
+		return $this->belongsToMany('App\UserLivreur');
 	}
 }
-    
-

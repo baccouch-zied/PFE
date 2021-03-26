@@ -34,6 +34,12 @@ class AdminMiddleware
 
         }
         
+        if(Auth::user()->type =='client')
+        {
+            return redirect()->route('/');
+
+        }
+        
         else
         {
             return redirect('/');

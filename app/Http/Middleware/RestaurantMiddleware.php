@@ -33,6 +33,12 @@ class RestaurantMiddleware
             return redirect()->route('livreur');
         }
         
+        if(Auth::user()->type =='client')
+        {
+            return redirect()->route('/');
+
+        }
+        
         else
         {
             return redirect('/');

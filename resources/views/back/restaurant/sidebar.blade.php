@@ -38,9 +38,13 @@
 
                 <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Gestion de mon interface</span><i data-feather="more-horizontal"></i>
                 </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="/infos"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Mes informations</span></a>
+                </li>
                 <li class=" nav-item"><a class="d-flex align-items-center" href="/categorie"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Gestion des categories</span></a>
                 </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="app-chat.html"><i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">Gestion des produits</span></a>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="produit"><i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">Gestion des produits</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="feedback"><i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="Chat">Feedbacks</span></a>
                 </li>
                 </li>
                 <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Gestion des commandes</span></a>
